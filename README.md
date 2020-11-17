@@ -1,0 +1,1 @@
+# iGenius Adapters SDK

@@ -1,0 +1,22 @@
+from pytest_factoryboy import register as register_factory
+
+from . import factories
+
+register_factory(factories.AggregationAttributeFactory)
+register_factory(factories.AggregationQueryFactory)
+register_factory(factories.AttributeFactory)
+register_factory(factories.AttributesSchemaFactory)
+register_factory(factories.AttributeUriFactory)
+register_factory(factories.BinningAttributeFactory)
+register_factory(factories.CollectionFactory)
+register_factory(factories.CollectionUriFactory)
+register_factory(factories.GroupByQueryFactory)
+register_factory(factories.JoinFactory)
+register_factory(factories.JoinPartFactory)
+register_factory(factories.ProjectionAttributeFactory)
+register_factory(factories.SelectQueryFactory)
+register_factory(factories.MultiExpressionFactory)
+register_factory(factories.ExpressionFactory)
+register_factory(factories.OrderByAttributeFactory)
+register_factory(factories.FunctionUriFactory)
+register_factory(factories.StaticValueAttributeFactory)
