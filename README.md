@@ -7,13 +7,13 @@ You can use our SDK in your project to be able to handle correctly the data stru
 
 With Poetry
 
-```
+```bash
 poetry add igenius-adapters-sdk
 ```
 
 With pip
 
-```
+```bash
 pip install igenius-adapters-sdk
 ```
 
@@ -21,7 +21,7 @@ pip install igenius-adapters-sdk
 
 You can bootstrap your environment running
 
-```
+```bash
 poetry install
 ```
 
@@ -29,7 +29,7 @@ poetry install
 
 Our SDK has the main objective to expose our data structures that are the business objects of our application: we call them `Entities` and thet are included in a package with the same name.
 
-```
+```bash
 -- src
    |- igenius_adapters_sdk
       |- entities
