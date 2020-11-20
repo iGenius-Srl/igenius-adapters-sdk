@@ -1,3 +1,7 @@
+.PHONY: test
+test: ## run all tests
+	poetry run pytest tests --cov-report term-missing --cov=src
+
 ###########
 # Release #
 ###########

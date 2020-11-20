@@ -1,0 +1,22 @@
+style: none
+template: CHANGELOG.tpl.md
+info:
+  title: CHANGELOG
+  repository_url: https://git.igenius.net/teams/backend/igenius-adapters-sdk
+options:
+  commits:
+    filters:
+      Type:
+         - add
+         - change
+         - fix
+         - refactor
+         - chore
+         - test
+         - docs
+  header:
+    pattern: "^(\\w*)\\:\\s(.*)\\s\\((.*)\\)$"
+    pattern_maps:
+      - Type
+      - Subject
+      - Scope
