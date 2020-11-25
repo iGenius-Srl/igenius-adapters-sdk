@@ -21,6 +21,8 @@ def create_uid_sequence(name):
 class AttributeFactory(factory.Factory):
     uid = factory.Sequence(lambda n: f'attr_uid_{n}')
     type = factory.LazyFunction(lambda: choice(ATTRIBUTE_TYPE_VALUES))  # noqa: A003
+    filterable = factory.LazyFunction(lambda: choice([True, False]))
+    sortable = factory.LazyFunction(lambda: choice([True, False]))
 
     class Meta:
         model = collection.Attribute

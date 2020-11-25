@@ -53,10 +53,14 @@ def test_create_empty_attributes_schema(attributes_schema_factory):
     pytest.param([{
         'uid': 'dict-uid',
         'type': AttributeType.CATEGORICAL,
+        'filterable': True,
+        'sortable': True,
     }]),
     pytest.param([{
         'uid': 'has.dot',
         'type': AttributeType.NUMERIC,
+        'filterable': True,
+        'sortable': True,
     }])
 ])
 def test_create_valid_attributes_schema(attributes_schema_factory, items):
