@@ -15,6 +15,8 @@ class AttributeType(str, Enum):
 class Attribute(BaseModel):
     uid: str
     type: AttributeType  # noqa: A003
+    filterable: bool
+    sortable: bool
 
 
 class AttributesSchema(BaseModel):
