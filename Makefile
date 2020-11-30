@@ -1,3 +1,20 @@
+SHELL = bash
+
+DOCS_BUCKET_NAME="static-demo.crystal.ai"
+DOCS_BUCKET_PREFIX="libraries/igenius-adapters-sdk"
+
+.PHONY: docs-build
+docs-build:
+	poetry run mkdocs build
+
+.PHONY: docs-serve
+docs-serve:
+	poetry run mkdocs serve
+
+.PHONY: docs-deploy
+docs-deploy:
+	aws s3 sync --acl public-read ./site/ "s3://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/latest/"
+
 .PHONY: test
 test: ## run all tests
 	poetry run pytest tests --cov-report term-missing --cov=src
