@@ -1,0 +1,41 @@
+site_name: iGenius Adapters SDK
+nav:
+  - Home: index.md
+  - HowTos:
+    - Install: howtos/install.md
+    - Develop: howtos/develop.md
+  - Introduction: introduction.md
+  - Entities:
+    - Collection: entities/collection.md
+    - URIs: entities/uri.md
+    - Data Attributes: entities/data_attributes.md
+    - Numeric Binnings: entities/numeric_binnings.md
+    - Parameters: entities/parameters.md
+    - Aggregation Functions: entities/aggregation_functions.md
+    - GroupBy Functions: entities/groupby_functions.md
+    - Joins: entities/joins.md
+    - Expressions: entities/expressions.md
+    - Queries: entities/queries.md
+    - i18n Translations: entities/i18n_translations.md
+
+theme:
+  name: 'material'
+  language: 'en'
+  palette:
+    primary: 'Purple'
+    accent: 'Light blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+plugins:
+  - search
+  - git-revision-date-localized
+
+markdown_extensions:
+  - markdown.extensions.attr_list
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
