@@ -17,6 +17,7 @@ nav:
     - Expressions: entities/expressions.md
     - Queries: entities/queries.md
     - i18n Translations: entities/i18n_translations.md
+    - Errors: entities/errors.md
 
 theme:
   name: 'material'
