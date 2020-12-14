@@ -5,9 +5,9 @@ include:
   - project: 'devops/gitlab-ci'
     ref: master
     file: '/snippets/.poetry-env.yaml'
-  - project: 'devops/gitlab-ci'
-    ref: master
-    file: '/snippets/.build-push.yaml'
+  # - project: 'devops/gitlab-ci'
+  #   ref: master
+  #   file: '/snippets/.build-push.yaml'
 
 stages:
   - build
@@ -25,21 +25,21 @@ compile-docs:
     - pip install -r docs/ci-requirements.txt
     - mkdocs build
 
-.deploy-docs:
-  variables:
-    DOCS_BUCKET_NAME: 'static-demo.crystal.ai'
-    DOCS_BUCKET_PREFIX: 'libraries/igenius-adapters-sdk'
-  image:
-    name: mesosphere/aws-cli:1.14.5
-    entrypoint:
-      - "sh"
-      - "-c"
-  dependencies:
-    - compile-docs
-  script:
-    - aws s3 sync --acl public-read ./site/ "s3://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/${DOCS_VERSION}/"
-  except:
-    - schedules
+# .deploy-docs:
+#   variables:
+#     DOCS_BUCKET_NAME: 'static-demo.crystal.ai'
+#     DOCS_BUCKET_PREFIX: 'libraries/igenius-adapters-sdk'
+#   image:
+#     name: mesosphere/aws-cli:1.14.5
+#     entrypoint:
+#       - "sh"
+#       - "-c"
+#   dependencies:
+#     - compile-docs
+#   script:
+#     - aws s3 sync --acl public-read ./site/ "s3://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/${DOCS_VERSION}/"
+#   except:
+#     - schedules
 
 # deploy-docs-latest:
 #   stage: deploy
