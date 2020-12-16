@@ -5,14 +5,19 @@ include:
   - project: 'devops/gitlab-ci'
     ref: master
     file: '/snippets/.poetry-env.yaml'
-  # - project: 'devops/gitlab-ci'
-  #   ref: master
-  #   file: '/snippets/.build-push.yaml'
+  - project: 'devops/gitlab-ci'
+    ref: master
+    file: '/snippets/.acceptance-verify-commit-message.yaml'
 
 stages:
+  - acceptance
   - build
   - deploy
-  - build-push
+
+.poetry-config:
+  before_script:
+    - poetry config repositories.igenius ${POETRY_GROUP_REPOSITORY}
+    - poetry config http-basic.igenius ${POETRY_AUTH}
 
 compile-docs:
   image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:python-3.7
@@ -25,34 +30,10 @@ compile-docs:
     - pip install -r docs/ci-requirements.txt
     - mkdocs build
 
-# .deploy-docs:
-#   variables:
-#     DOCS_BUCKET_NAME: 'static-demo.crystal.ai'
-#     DOCS_BUCKET_PREFIX: 'libraries/igenius-adapters-sdk'
-#   image:
-#     name: mesosphere/aws-cli:1.14.5
-#     entrypoint:
-#       - "sh"
-#       - "-c"
-#   dependencies:
-#     - compile-docs
-#   script:
-#     - aws s3 sync --acl public-read ./site/ "s3://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/${DOCS_VERSION}/"
-#   except:
-#     - schedules
-
-# deploy-docs-latest:
-#   stage: deploy
-#   extends: .deploy-docs
-#   variables:
-#     DOCS_VERSION: 'latest'
-#   # only:
-#   #   - master
-
-# deploy-docs-tagged:
-#   stage: deploy
-#   extends: .deploy-docs
-#   variables:
-#     DOCS_VERSION: $CI_COMMIT_TAG
-#   only:
-#     - tags
+deploy:
+  stage: deploy
+  extends: .poetry-config
+  script:
+    - poetry publish -r igenius --build
+  only:
+    - tags
