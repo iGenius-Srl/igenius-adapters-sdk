@@ -29,11 +29,16 @@ compile-docs:
   script:
     - pip install -r docs/ci-requirements.txt
     - mkdocs build
-
-deploy:
-  stage: deploy
-  extends: .poetry-config
-  script:
-    - poetry publish -r igenius --build
   only:
+    - master
+    - tags
+
+publish-pypi:
+  image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:python-3.8
+  stage: deploy
+  script:
+    - pip install poetry
+    - poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+  only:
+    - master
     - tags
