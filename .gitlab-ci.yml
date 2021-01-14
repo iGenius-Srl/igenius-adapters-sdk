@@ -30,7 +30,6 @@ compile-docs:
     - pip install -r docs/ci-requirements.txt
     - mkdocs build
   only:
-    - master
     - tags
 
 publish-pypi:
@@ -40,5 +39,4 @@ publish-pypi:
     - pip install poetry
     - poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
   only:
-    - master
     - tags
