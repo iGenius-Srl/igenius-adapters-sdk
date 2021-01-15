@@ -1,10 +1,6 @@
 site_name: iGenius Adapters SDK
 nav:
   - Home: index.md
-  - HowTos:
-    - Install: howtos/install.md
-    - Develop: howtos/develop.md
-  - Introduction: introduction.md
   - Entities:
     - Collection: entities/collection.md
     - URIs: entities/uri.md
@@ -18,6 +14,13 @@ nav:
     - Queries: entities/queries.md
     - i18n Translations: entities/i18n_translations.md
     - Errors: entities/errors.md
+  - Query examples:
+      - Aggregation with static values: query_examples/aggregation_with_static_values.md
+      - Join projection: query_examples/join_projection.md
+      - Order by: query_examples/order_by.md
+      - Distinct: query_examples/distinct.md
+      - Select all: query_examples/select_all.md
+      - Where: query_examples/where.md
 
 theme:
   name: 'material'
