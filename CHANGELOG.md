@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 For further informations about change log please go [here](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.0.0...master)
+## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.0.1...master)
 
-## [v1.0.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v0.4.0...v1.0.0) - 2021-01-15
+## [v1.0.1](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.0.0...v1.0.1) - 2021-01-18
+### Chore
+* pypi publish meta tags ([SQD-931](https://igenius.atlassian.net/browse/SQD-931))
+
+
+## [v1.0.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v0.4.0...v1.0.0) - 2021-01-18
 ### Add
 * new entities for error handling ([SQD-929](https://igenius.atlassian.net/browse/SQD-929))
 
