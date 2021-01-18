@@ -1,8 +1,15 @@
 [tool.poetry]
 name = "igenius-adapters-sdk"
 version = "1.0.0"
-description = ""
+description = "The iGenius Software Development Kit to develop crystal datasource adapters."
 authors = ["iGenius Backend <backend@igenius.ai>"]
+homepage = "https://igenius.ai"
+license = "Copyright 2021 - iGenius S.r.l."
+readme = "README.md"
+classifiers = [
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Application Frameworks"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
