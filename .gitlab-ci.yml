@@ -28,12 +28,40 @@ compile-docs:
       - site/
   script:
     - pip install -r docs/ci-requirements.txt
-    - mkdocs build
+    - make docs-build
+  only:
+    - tags
+
+publish-docs-latest:
+  image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:gcloud-docker
+  stage: deploy
+  variables:
+    DOCS_VERSION: "latest"
+  script:
+    - export GC_AUTH_FILE=/root/.config/gcloud/application_default_credentials.json
+    - echo $GCR_WEBCONNECTORS_PASSWORD > $GC_AUTH_FILE
+    - gcloud auth activate-service-account $GCR_WEBCONNECTORS_USERNAME --key-file=$GC_AUTH_FILE
+    - pip install -r docs/ci-requirements.txt
+    - make docs-deploy
+  only:
+    - tags
+
+publish-docs-tagged:
+  image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:gcloud-docker
+  stage: deploy
+  variables:
+    DOCS_VERSION: "${CI_COMMIT_TAG}"
+  script:
+    - export GC_AUTH_FILE=/root/.config/gcloud/application_default_credentials.json
+    - echo $GCR_WEBCONNECTORS_PASSWORD > $GC_AUTH_FILE
+    - gcloud auth activate-service-account $GCR_WEBCONNECTORS_USERNAME --key-file=$GC_AUTH_FILE
+    - pip install -r docs/ci-requirements.txt
+    - make docs-deploy
   only:
     - tags
 
 publish-pypi:
-  image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:python-3.8
+  image: $CI_REGISTRY/utilities/igenius.ci-docker-images-backend:python-3.7
   stage: deploy
   script:
     - pip install poetry
