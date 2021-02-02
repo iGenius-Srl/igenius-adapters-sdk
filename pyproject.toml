@@ -12,7 +12,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 pydantic = "^1.7.2"
 
 [tool.poetry.dev-dependencies]

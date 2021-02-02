@@ -1,7 +1,8 @@
 SHELL = bash
 
-DOCS_BUCKET_NAME="static-demo.crystal.ai"
-DOCS_BUCKET_PREFIX="libraries/igenius-adapters-sdk"
+DOCS_BUCKET_NAME=crystal-web-connectors-docs
+DOCS_BUCKET_PREFIX=sdk
+DOCS_VERSION?=latest
 
 .PHONY: docs-build
 docs-build:
@@ -13,7 +14,7 @@ docs-serve:
 
 .PHONY: docs-deploy
 docs-deploy:
-	aws s3 sync --acl public-read ./site/ "s3://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/latest/"
+	gsutil rsync -r ./site/ "gs://${DOCS_BUCKET_NAME}/${DOCS_BUCKET_PREFIX}/${DOCS_VERSION}/"
 
 .PHONY: test
 test: ## run all tests
