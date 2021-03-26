@@ -109,3 +109,12 @@ def test_binning_rules_raises_for_overlapping_values(bins):
 ])
 def test_binning_rules_accepts_holes_between_bins(bins):
     shf.BinningRulesFactory(bins=bins)
+
+
+@pytest.mark.parametrize('bin', [
+    pytest.param(shf.BinFactory(ge=10, lt=None)),
+    pytest.param(shf.BinFactory(ge=20, lt=40)),
+    pytest.param(shf.BinFactory(ge=None, lt=20.3)),
+])
+def test_bin_string_representation(bin):
+    assert str(bin) == str(bin.ge)+"-"+str(bin.lt)

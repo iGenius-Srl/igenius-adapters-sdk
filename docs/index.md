@@ -7,12 +7,14 @@ You can use our SDK in your project to be able to handle correctly the data stru
 
 ### Folder structure
 
-Our SDK has the main objective to expose our data structures that are the business objects of our application: we call them `Entities` and thet are included in a package with the same name.
+Our SDK has the main objective to expose our data structures that are the business objects of our application: we call them `Entities` and those are included in a package with the same name.
+We also provide some `Tools` to automate parts of the processing required by the data structures.
 
 ```bash
 -- src
    |- igenius_adapters_sdk
       |- entities
+      |- tools
 ```
 
 ### Data structure

@@ -6,15 +6,17 @@ from tests.factories import (
     JoinFactory,
     ProjectionAttributeFactory,
     BinningAttributeFactory,
+    BinningAttributeFactoryWithFunctionParam,
     MultiExpressionFactory,
 )
-from igenius_adapters_sdk.entities.query import Query
+from igenius_adapters_sdk.entities.query import Query, GroupByQuery
 
 
 class Dummy:
     aggregation_attributes = AggregationAttributeFactory.create_batch(2)
     projection = ProjectionAttributeFactory.create_batch(2)
     binning_attributes = BinningAttributeFactory.create_batch(2)
+    binning_attributes_with_function_param = BinningAttributeFactoryWithFunctionParam.create_batch(2)
     from_ = JoinFactory()
     where = MultiExpressionFactory()
 
@@ -98,3 +100,19 @@ test_groupby_query_has_expected_attribute = create_entity_test_suite(
 ])
 def test_entity_is_a_query(create_instance):
     assert is_instance_of_union_type(Query, create_instance())
+
+
+def test_groupby_query_fails_on_bin_interpolation_flag_true():
+    err_msg = 'bin_interpolation flag applys to binning attributes only'
+    with pytest.raises(ValueError, match=err_msg):
+        GroupByQuery(from_=Dummy.from_,
+                     aggregations=Dummy.aggregation_attributes,
+                     groups=Dummy.binning_attributes,
+                     bin_interpolation=True)
+
+
+def test_groupby_query_pass_on_bin_interpolation_flag_true():
+    GroupByQuery(from_=Dummy.from_,
+                 aggregations=Dummy.aggregation_attributes,
+                 groups=Dummy.binning_attributes_with_function_param,
+                 bin_interpolation=True)

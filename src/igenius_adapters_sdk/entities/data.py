@@ -40,7 +40,7 @@ class OrderByAttribute(BaseModel):
 class FunctionUri(BaseModel):
     function_type: Literal['group_by', 'aggregation']
     function_uid: str
-    function_params: Optional[Union[numeric_binning.BinningRules]]
+    function_params: Optional[numeric_binning.BinningRules]
 
     @validator('function_uid')
     def check_uid_existence(cls, v, values):

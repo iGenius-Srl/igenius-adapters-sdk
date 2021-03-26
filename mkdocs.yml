@@ -14,6 +14,9 @@ nav:
     - Queries: entities/queries.md
     - i18n Translations: entities/i18n_translations.md
     - Errors: entities/errors.md
+  - Tools:
+    - Chassis: tools/chassis.md
+    - Utils: tools/utils.md
   - Query examples:
       - Aggregation with static values: query_examples/aggregation_with_static_values.md
       - Join projection: query_examples/join_projection.md

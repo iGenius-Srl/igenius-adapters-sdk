@@ -22,6 +22,9 @@ class Bin(BaseModel):
             raise ValueError('invalid bin values')
         return values
 
+    def __str__(self):
+        return str(self.ge)+"-"+str(self.lt)
+
 
 class BinningRules(BaseModel):
     bins: List[Bin] = Field(..., min_items=2)
