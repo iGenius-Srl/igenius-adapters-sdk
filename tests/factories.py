@@ -148,11 +148,22 @@ class BinningAttributeFactory(factory.Factory):
         function_params=None,
     )
     alias = factory.LazyAttribute(
-        lambda o: '_'.join(['binning', o.attribute_uri.attribute_uid, o.function_uri.function_uid])
+        lambda o: '_'.join(
+            ['binning', o.attribute_uri.attribute_uid, o.function_uri.function_uid]
+        )
     )
 
     class Meta:
         model = data.BinningAttribute
+
+
+class BinningAttributeFactoryWithFunctionParam(BinningAttributeFactory):
+    function_uri = factory.SubFactory(
+        factory=FunctionUriFactory,
+        function_type='group_by',
+        function_uid=attribute.GroupByFunction.IDENTITY.uid,
+        function_params=BinningRulesFactory()
+    )
 
 
 class I18nFactory(factory.Factory):
@@ -224,6 +235,7 @@ class GroupByQueryFactory(factory.Factory):
     groups = factory.LazyFunction(lambda: BinningAttributeFactory.build_batch(size=2))
     where = None
     order_by = None
+    bin_interpolation = None
 
     class Meta:
         model = query.GroupByQuery

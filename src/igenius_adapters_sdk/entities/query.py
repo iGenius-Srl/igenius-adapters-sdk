@@ -2,7 +2,7 @@ import abc
 from enum import Enum
 from typing import Any, List, Optional, Union
 
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, validator, root_validator
 
 from igenius_adapters_sdk.entities import data, params, uri
 
@@ -88,6 +88,18 @@ class AggregationQuery(BaseQuery):
 class GroupByQuery(BaseQuery):
     aggregations: List[Union[data.AggregationAttribute, data.StaticValueAttribute]]
     groups: List[data.BinningAttribute]
+    bin_interpolation: Optional[bool] = True
+
+    @root_validator
+    def bin_interpolation_flag_validator(cls, values):
+        flag = values.get('bin_interpolation')
+        groups = values.get('groups')
+        has_function_params = any([att.function_uri.function_params is not None for att in groups])
+        if flag is None and has_function_params:
+            values['bin_interpolation'] = True
+        elif flag is True and not has_function_params:
+            raise ValueError('bin_interpolation flag applys to binning attributes only')
+        return values
 
 
 Query = Union[GroupByQuery, AggregationQuery, SelectQuery]

@@ -39,9 +39,12 @@ Fetches grouped data.
 ```python
 class GroupByQuery(BaseQuery):
     aggregations: List[Union[data.AggregationAttribute, data.StaticValueAttribute]]
-    groups: List[data.BinningAttribute]
+    groups: List[data.BinningAttribute],
+    bin_interpolation: Optional[bool] = True
 ```
 
+!!! info
+    `bin_interpolation` flag tells whether the result of the query should contain all the bins resulting from the combinations of the attributes used in `groups` parameter, including the empty ones. [`Bin interpolation`](../tools/utils.md#bin_interpolation) utils provides an helper for such cases.
 ## Query
 
 All used types of queries.
