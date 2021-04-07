@@ -9,7 +9,7 @@ def bin_interpolation(query: GroupByQuery, result: List[Mapping]) -> List[Mappin
     for att in query.groups:
         if isinstance(att.function_uri.function_params, BinningRules):
             binset[att.alias] = att.function_uri.function_params.bins
-    default = {d.alias: None for d in query.aggregations}
+    default = {d.alias: d.default_bin_interpolation for d in query.aggregations}
     fullset = []
     for comb in product(*[[{bins: str(b)} for b in binset[bins]]
                             for bins in binset]):
