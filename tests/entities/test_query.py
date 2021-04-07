@@ -1,15 +1,17 @@
 import pytest
 
-from tests.factories import AggregationQueryFactory, GroupByQueryFactory, SelectQueryFactory
+from igenius_adapters_sdk.entities.query import GroupByQuery, Query
 from tests.factories import (
     AggregationAttributeFactory,
-    JoinFactory,
-    ProjectionAttributeFactory,
+    AggregationQueryFactory,
     BinningAttributeFactory,
     BinningAttributeFactoryWithFunctionParam,
+    GroupByQueryFactory,
+    JoinFactory,
     MultiExpressionFactory,
+    ProjectionAttributeFactory,
+    SelectQueryFactory,
 )
-from igenius_adapters_sdk.entities.query import Query, GroupByQuery
 
 
 class Dummy:
@@ -22,46 +24,18 @@ class Dummy:
 
 
 class Case:
-    From = pytest.param(
-        'from_',
-        Dummy.from_,
-        Dummy.from_,
-        id='from_'
-    )
-    Attributes = pytest.param(
-        'attributes',
-        Dummy.projection,
-        Dummy.projection,
-        id='attributes'
-    )
+    From = pytest.param("from_", Dummy.from_, Dummy.from_, id="from_")
+    Attributes = pytest.param("attributes", Dummy.projection, Dummy.projection, id="attributes")
     Aggregations = pytest.param(
-        'aggregations',
-        Dummy.aggregation_attributes,
-        Dummy.aggregation_attributes,
-        id='aggregations'
+        "aggregations", Dummy.aggregation_attributes, Dummy.aggregation_attributes, id="aggregations"
     )
-    Groups = pytest.param(
-        'groups',
-        Dummy.binning_attributes,
-        Dummy.binning_attributes,
-        id='groups'
-    )
-    Distinct = pytest.param(
-        'distinct',
-        False,
-        False,
-        id='distinct'
-    )
-    Where = pytest.param(
-        'where',
-        Dummy.where,
-        Dummy.where,
-        id='where'
-    )
+    Groups = pytest.param("groups", Dummy.binning_attributes, Dummy.binning_attributes, id="groups")
+    Distinct = pytest.param("distinct", False, False, id="distinct")
+    Where = pytest.param("where", Dummy.where, Dummy.where, id="where")
 
 
 def create_entity_test_suite(factory, cases):
-    @pytest.mark.parametrize('attr, input_, expected', cases)
+    @pytest.mark.parametrize("attr, input_, expected", cases)
     def test(attr, input_, expected):
         actual = factory(**{attr: input_})
         assert expected == getattr(actual, attr)
@@ -70,7 +44,7 @@ def create_entity_test_suite(factory, cases):
 
 
 def is_instance_of_union_type(union_type, instance) -> bool:
-    """ Since it's not possible to runtime check an instance
+    """Since it's not possible to runtime check an instance
     against a Union type, this method gets the elements of the union
     and returns true if the instance is of one of those types.
     """
@@ -78,41 +52,45 @@ def is_instance_of_union_type(union_type, instance) -> bool:
 
 
 test_select_query_has_expected_attribute = create_entity_test_suite(
-    SelectQueryFactory,
-    [Case.From, Case.Attributes, Case.Distinct, Case.Where]
+    SelectQueryFactory, [Case.From, Case.Attributes, Case.Distinct, Case.Where]
 )
 
 test_aggregation_query_has_expected_attribute = create_entity_test_suite(
-    AggregationQueryFactory,
-    [Case.From, Case.Aggregations, Case.Where]
+    AggregationQueryFactory, [Case.From, Case.Aggregations, Case.Where]
 )
 
 test_groupby_query_has_expected_attribute = create_entity_test_suite(
-    GroupByQueryFactory,
-    [Case.From, Case.Aggregations, Case.Groups, Case.Where]
+    GroupByQueryFactory, [Case.From, Case.Aggregations, Case.Groups, Case.Where]
 )
 
 
-@pytest.mark.parametrize('create_instance', [
-    pytest.param(SelectQueryFactory, id='SelectQuery'),
-    pytest.param(AggregationQueryFactory, id='AggregationQueryFactory'),
-    pytest.param(GroupByQueryFactory, id='GroupByQueryFactory'),
-])
+@pytest.mark.parametrize(
+    "create_instance",
+    [
+        pytest.param(SelectQueryFactory, id="SelectQuery"),
+        pytest.param(AggregationQueryFactory, id="AggregationQueryFactory"),
+        pytest.param(GroupByQueryFactory, id="GroupByQueryFactory"),
+    ],
+)
 def test_entity_is_a_query(create_instance):
     assert is_instance_of_union_type(Query, create_instance())
 
 
 def test_groupby_query_fails_on_bin_interpolation_flag_true():
-    err_msg = 'bin_interpolation flag applys to binning attributes only'
+    err_msg = "bin_interpolation flag applys to binning attributes only"
     with pytest.raises(ValueError, match=err_msg):
-        GroupByQuery(from_=Dummy.from_,
-                     aggregations=Dummy.aggregation_attributes,
-                     groups=Dummy.binning_attributes,
-                     bin_interpolation=True)
+        GroupByQuery(
+            from_=Dummy.from_,
+            aggregations=Dummy.aggregation_attributes,
+            groups=Dummy.binning_attributes,
+            bin_interpolation=True,
+        )
 
 
 def test_groupby_query_pass_on_bin_interpolation_flag_true():
-    GroupByQuery(from_=Dummy.from_,
-                 aggregations=Dummy.aggregation_attributes,
-                 groups=Dummy.binning_attributes_with_function_param,
-                 bin_interpolation=True)
+    GroupByQuery(
+        from_=Dummy.from_,
+        aggregations=Dummy.aggregation_attributes,
+        groups=Dummy.binning_attributes_with_function_param,
+        bin_interpolation=True,
+    )

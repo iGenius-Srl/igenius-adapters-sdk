@@ -51,3 +51,25 @@ minor: ## release a new minor
 .PHONY: patch
 patch: ## release a new patch
 	$(MAKE) release INCREMENT='patch'
+
+###########
+# Linting #
+###########
+
+MAX_COMPLEXITY ?= 10
+LINE_LENGTH ?= 120
+FLAKE8_EXCLUDE_DIRS ?= .venv
+
+.PHONY: lint
+lint: ## lint code [toolchain style]
+	poetry run flake8 --exclude=${FLAKE8_EXCLUDE_DIRS} --extend-ignore=E203 --max-complexity=$(MAX_COMPLEXITY) --max-line-length=$(LINE_LENGTH) .
+	# E203 issue: https://github.com/PyCQA/pycodestyle/issues/373
+	## format check [toolchain style]
+	poetry run isort --line-width=$(LINE_LENGTH) --multi-line=3 --trailing-comma --atomic --skip-gitignore --check-only --diff --stdout .
+	poetry run black --check --diff --line-length=$(LINE_LENGTH) .
+
+.PHONY: format
+format: ## format code [toolchain style]
+	poetry run isort --line-width=$(LINE_LENGTH) --multi-line=3 --trailing-comma --atomic --skip-gitignore .
+	poetry run black --line-length=$(LINE_LENGTH) .
+	

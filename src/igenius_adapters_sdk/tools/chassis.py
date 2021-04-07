@@ -1,8 +1,8 @@
-from typing import List, Mapping, Callable
+from typing import Callable, List, Mapping
 
 from pydantic import BaseModel
 
-from igenius_adapters_sdk.entities import query, numeric_binning
+from igenius_adapters_sdk.entities import query
 from igenius_adapters_sdk.tools import utils
 
 
