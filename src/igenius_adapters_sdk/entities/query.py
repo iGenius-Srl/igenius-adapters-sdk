@@ -2,24 +2,24 @@ import abc
 from enum import Enum
 from typing import Any, List, Optional, Union
 
-from pydantic import BaseModel, Field, validator, root_validator
+from pydantic import BaseModel, Field, root_validator, validator
 
 from igenius_adapters_sdk.entities import data, params, uri
 
 
 class JoinType(str, Enum):
-    INNER = 'inner'
-    LEFT_OUTER = 'left-outer'
-    RIGHT_OUTER = 'right-outer'
+    INNER = "inner"
+    LEFT_OUTER = "left-outer"
+    RIGHT_OUTER = "right-outer"
 
 
 class CriteriaType(str, Enum):
-    AND = 'and'
-    OR = 'or'
+    AND = "and"
+    OR = "or"
 
 
 class JoinPart(BaseModel):
-    from_: 'From'
+    from_: "From"
     on: uri.AttributeUri
 
 
@@ -39,15 +39,15 @@ class Expression(BaseModel):
     operator: str
     value: Any
 
-    @validator('operator')
+    @validator("operator")
     def check_uid_existance(cls, v):
         params.ParamOperation.from_uid(v)
         return v
 
-    @validator('value')
+    @validator("value")
     def validate_operation_schema(cls, v, values):
-        if 'operator' in values:
-            schema = params.ParamOperation.from_uid(values['operator']).properties_schema
+        if "operator" in values:
+            schema = params.ParamOperation.from_uid(values["operator"]).properties_schema
             operation_schema = params.OperationSchemas.from_jsonschema(schema)
             if v is None:
                 v = {}
@@ -60,7 +60,7 @@ class Expression(BaseModel):
 
 class MultiExpression(BaseModel):
     criteria: CriteriaType
-    expressions: List[Union['MultiExpression', Expression]]
+    expressions: List[Union["MultiExpression", Expression]]
 
 
 WhereExpression = Union[MultiExpression, Expression]
@@ -92,13 +92,13 @@ class GroupByQuery(BaseQuery):
 
     @root_validator
     def bin_interpolation_flag_validator(cls, values):
-        flag = values.get('bin_interpolation')
-        groups = values.get('groups')
+        flag = values.get("bin_interpolation")
+        groups = values.get("groups")
         has_function_params = any([att.function_uri.function_params is not None for att in groups])
         if flag is None and has_function_params:
-            values['bin_interpolation'] = True
+            values["bin_interpolation"] = True
         elif flag is True and not has_function_params:
-            raise ValueError('bin_interpolation flag applys to binning attributes only')
+            raise ValueError("bin_interpolation flag applys to binning attributes only")
         return values
 
 

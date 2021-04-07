@@ -5,20 +5,19 @@ from pydantic import BaseModel, errors
 from pydantic.utils import update_not_none
 from pydantic.validators import constr_length_validator, strict_str_validator
 
-
 __all__ = [
-    'AttributeUid',
-    'AttributeUri',
-    'CollectionUid',
-    'CollectionUri',
-    'DatasourceUid',
-    'DatasourceUri',
-    'DataSchemaError',
+    "AttributeUid",
+    "AttributeUri",
+    "CollectionUid",
+    "CollectionUri",
+    "DatasourceUid",
+    "DatasourceUri",
+    "DataSchemaError",
 ]
 
 OptionalInt = Optional[int]
-RE_MATCH_ALL_BUT_NEW_LINES_AND_TABS = re.compile(r'^[\S ]+$')
-RE_MATCH_ALL_BUT_WHITESPACES = re.compile(r'^\S+$')
+RE_MATCH_ALL_BUT_NEW_LINES_AND_TABS = re.compile(r"^[\S ]+$")
+RE_MATCH_ALL_BUT_WHITESPACES = re.compile(r"^\S+$")
 
 
 class DataSchemaError:

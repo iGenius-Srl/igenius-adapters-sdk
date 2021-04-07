@@ -1,8 +1,9 @@
 from itertools import product
 from typing import List, Mapping
 
-from igenius_adapters_sdk.entities.query import GroupByQuery
 from igenius_adapters_sdk.entities.numeric_binning import BinningRules
+from igenius_adapters_sdk.entities.query import GroupByQuery
+
 
 def bin_interpolation(query: GroupByQuery, result: List[Mapping]) -> List[Mapping]:
     binset = {}
@@ -11,8 +12,7 @@ def bin_interpolation(query: GroupByQuery, result: List[Mapping]) -> List[Mappin
             binset[att.alias] = att.function_uri.function_params.bins
     default = {d.alias: d.default_bin_interpolation for d in query.aggregations}
     fullset = []
-    for comb in product(*[[{bins: str(b)} for b in binset[bins]]
-                            for bins in binset]):
+    for comb in product(*[[{bins: str(b)} for b in binset[bins]] for bins in binset]):
         partial = {k: v for d in comb for k, v in d.items()}
         match = []
         keep = {}

@@ -5,11 +5,11 @@ from pydantic import BaseModel, Field
 
 
 class AttributeType(str, Enum):
-    BOOLEAN = 'crystal.topics.data.attribute-types.boolean'
-    CATEGORICAL = 'crystal.topics.data.attribute-types.categorical'
-    DATETIME = 'crystal.topics.data.attribute-types.datetime'
-    NUMERIC = 'crystal.topics.data.attribute-types.numeric'
-    UNKNOWN = 'crystal.topics.data.attribute-types.unknown'
+    BOOLEAN = "crystal.topics.data.attribute-types.boolean"
+    CATEGORICAL = "crystal.topics.data.attribute-types.categorical"
+    DATETIME = "crystal.topics.data.attribute-types.datetime"
+    NUMERIC = "crystal.topics.data.attribute-types.numeric"
+    UNKNOWN = "crystal.topics.data.attribute-types.unknown"
 
 
 class Attribute(BaseModel):
