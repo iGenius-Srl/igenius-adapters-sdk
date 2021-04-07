@@ -86,3 +86,70 @@ def test_bin_interpolation(engine_result, final_result, bins, aggregation_alias)
         ) for b in bins]
     )
     assert final_result == utils.bin_interpolation(query, engine_result)
+
+@pytest.mark.parametrize(
+    "engine_result, final_result, bins, aggregation",
+    [
+        pytest.param(
+            [
+                {"price": "0.0-20.0", "quantity": 140},
+                {"price": "21.0-None", "quantity": 135},
+            ],
+            [
+                {"price": "0.0-20.0", "quantity": 140},
+                {"price": "20.0-21.0", "quantity": "missing"},
+                {"price": "21.0-None", "quantity": 135},
+            ],
+            {
+                "price": [
+                    shf.BinFactory(ge=0.0, lt=20.0),
+                    shf.BinFactory(ge=20.0, lt=21.0),
+                    shf.BinFactory(ge=21.0, lt=None),
+                ]
+            },
+            shf.AggregationAttributeFactory(
+                alias="quantity",
+                default_bin_interpolation="missing"
+            )
+        ),
+        pytest.param(
+            [
+                {"price": "0.0-20.0", "quantity": 140},
+                {"price": "21.0-None", "quantity": 135},
+            ],
+            [
+                {"price": "0.0-20.0", "quantity": 140},
+                {"price": "20.0-21.0", "quantity": 0},
+                {"price": "21.0-None", "quantity": 135},
+            ],
+            {
+                "price": [
+                    shf.BinFactory(ge=0.0, lt=20.0),
+                    shf.BinFactory(ge=20.0, lt=21.0),
+                    shf.BinFactory(ge=21.0, lt=None),
+                ]
+            },
+            shf.StaticValueAttributeFactory(
+                alias="quantity",
+                default_bin_interpolation=0
+            )
+        ),
+    ],
+)
+def test_bin_interpolation_with_ovewritten_default(engine_result, final_result, bins, aggregation):
+    query = shf.GroupByQueryFactory(
+        bin_interpolation=True,
+        aggregations=[aggregation],
+        groups=[
+            shf.BinningAttributeFactory(
+                alias=b,
+                function_uri=shf.FunctionUriFactory(
+                    function_type="group_by",
+                    function_uid=attribute.GroupByFunction.NUMERIC_BINNING.uid,
+                    function_params=shf.BinningRulesFactory(bins=bins[b]),
+                ),
+            )
+            for b in bins
+        ],
+    )
+    assert final_result == utils.bin_interpolation(query, engine_result)

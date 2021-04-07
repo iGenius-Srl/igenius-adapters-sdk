@@ -1,6 +1,6 @@
 import abc
 from enum import Enum
-from typing import Literal, Optional, Union
+from typing import Literal, Optional, Union, Any
 
 from pydantic import BaseModel, validator
 
@@ -21,6 +21,7 @@ class OrderByDirection(str, Enum):
 class StaticValueAttribute(BaseModel):
     value: str
     alias: str
+    default_bin_interpolation: Optional[Any]
 
 
 class BaseAttribute(BaseModel, abc.ABC):
@@ -61,6 +62,7 @@ class FunctionUri(BaseModel):
 
 class AggregationAttribute(BaseAttribute):
     function_uri: FunctionUri
+    default_bin_interpolation: Optional[Any]
 
     @validator('function_uri')
     def check_type(cls, v):

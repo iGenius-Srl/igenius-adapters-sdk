@@ -6,7 +6,7 @@
 * `query`: the starting query
 * `result`: the result on which aplying the bin interpolation
 
-This function returns the result of a binned [`GroupBy`](../entities/queries.md#groupby-query) query, including the potentially missing bins resulting from the combinations of [`BinningAttribute`](../entities/data_attributes.md#binning-attribute) used in `group` parameter
+This function returns the result of a binned [`GroupBy`](../entities/queries.md#groupby-query) query, including the potentially missing bins resulting from the combinations of [`BinningAttribute`](../entities/data_attributes.md#binning-attribute) used in `group` parameter. For such empty bins, the [`default_bin_interpolation`](../entities/data_attributes.md#aggregation-attribute) parameter of the aggregation attiributes allow to specify the value to use (`None` value will be used if not specified).
 
 
 ```python

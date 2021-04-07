@@ -44,7 +44,7 @@ class GroupByQuery(BaseQuery):
 ```
 
 !!! info
-    `bin_interpolation` flag tells whether the result of the query should contain all the bins resulting from the combinations of the attributes used in `groups` parameter, including the empty ones. [`Bin interpolation`](../tools/utils.md#bin_interpolation) utils provides an helper for such cases.
+    `bin_interpolation` flag tells whether the result of the query should contain all the bins resulting from the combinations of the attributes used in `groups` parameter, including the empty ones. [`Bin interpolation`](../tools/utils.md#bin_interpolation) utils provides an helper for such cases. The [`default_bin_interpolation`](../entities/data_attributes.md#aggregation-attribute) value specified in the aggregations attributes will be used for the empty bins (`None` value will be used if not specified).
 ## Query
 
 All used types of queries.

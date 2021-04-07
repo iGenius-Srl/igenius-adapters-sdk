@@ -24,8 +24,10 @@ Provides raw data from an attribute.
 class StaticValueAttribute(BaseModel):
     value: str
     alias: str
+    default_bin_interpolation: Optional[Any]
 ```
-
+!!! info
+    `default_bin_interpolation` value will be used for the empty bins intrpoleted by [`Bin interpolation`](../tools/utils.md#bin_interpolation) helper.
 ## Base attribute
 
 Attribute model that is followed by Aggregation and GroupBy Attribute.
@@ -43,8 +45,10 @@ Provides aggregated data as a result.
 ```python
 class AggregationAttribute(BaseAttribute):
     function_uri: FunctionUri
+    default_bin_interpolation: Optional[Any]
 ```
-
+!!! info
+    `default_bin_interpolation` value will be used for the empty bins intrpoleted by [`Bin interpolation`](../tools/utils.md#bin_interpolation) helper.
 ## Binning attribute
 
 Provides binned data as a result.
