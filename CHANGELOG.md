@@ -3,7 +3,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 For further informations about change log please go [here](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.1.0...master)
+## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.2.0...master)
+
+## [v1.2.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.1.0...v1.2.0) - 2021-04-07
+### Add
+* supporting custom default value in aggregation attributes for binned groupby queries ([SQD-1045](https://igenius.atlassian.net/browse/SQD-1045))
+
+### Chore
+* add support for linting with black ([SQD-1047](https://igenius.atlassian.net/browse/SQD-1047))
+
 
 ## [v1.1.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.0.2...v1.1.0) - 2021-04-07
 ### Add
