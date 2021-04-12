@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 For further informations about change log please go [here](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.2.0...master)
+## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.2.1...master)
 
-## [v1.2.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.1.0...v1.2.0) - 2021-04-07
+## [v1.2.1](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.2.0...v1.2.1) - 2021-04-12
+### Fix
+* move linting dependencies to dev-dependencies ([SQD-1049](https://igenius.atlassian.net/browse/SQD-1049))
+
+
+## [v1.2.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.1.0...v1.2.0) - 2021-04-08
 ### Add
 * supporting custom default value in aggregation attributes for binned groupby queries ([SQD-1045](https://igenius.atlassian.net/browse/SQD-1045))
 
