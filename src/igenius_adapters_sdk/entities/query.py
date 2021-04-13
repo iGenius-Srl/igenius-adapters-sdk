@@ -88,7 +88,7 @@ class AggregationQuery(BaseQuery):
 class GroupByQuery(BaseQuery):
     aggregations: List[Union[data.AggregationAttribute, data.StaticValueAttribute]]
     groups: List[data.BinningAttribute]
-    bin_interpolation: Optional[bool] = True
+    bin_interpolation: Optional[bool] = None
 
     @root_validator
     def bin_interpolation_flag_validator(cls, values):
