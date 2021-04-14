@@ -1,4 +1,5 @@
 import re
+from os import environ
 from typing import Any, Dict, Optional, Pattern
 
 from pydantic import BaseModel, errors
@@ -16,8 +17,8 @@ __all__ = [
 ]
 
 OptionalInt = Optional[int]
+RE_MATCH_COLLECTION_NAME = re.compile(r"" + environ.get("IGENIUS_ADAPTER_SDK_RE_MATCH_COLLECTION_NAME", r"^\S+$"))
 RE_MATCH_ALL_BUT_NEW_LINES_AND_TABS = re.compile(r"^[\S ]+$")
-RE_MATCH_ALL_BUT_WHITESPACES = re.compile(r"^\S+$")
 
 
 class DataSchemaError:
@@ -63,7 +64,7 @@ class AttributeUid(Uid):
 
 
 class CollectionUid(Uid):
-    regex: Pattern[str] = RE_MATCH_ALL_BUT_WHITESPACES
+    regex: Pattern[str] = RE_MATCH_COLLECTION_NAME
 
 
 class DatasourceUid(Uid):

@@ -34,3 +34,9 @@ With pip
 ```bash
 pip install igenius-adapters-sdk
 ```
+## Further configuration
+
+It is possible to control the behavior of this SDK through environment variables. The currently supported variables are:
+
+- `IGENIUS_ADAPTER_SDK_RE_MATCH_COLLECTION_NAME`:
+   specifies the regular expression to check against collection names. The default is `^\S+$` (matches any string not containing spaces, tabs, or line breaks)
