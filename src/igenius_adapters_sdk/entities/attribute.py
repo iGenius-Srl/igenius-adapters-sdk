@@ -1,8 +1,12 @@
+from typing import Union
+
 from pydantic import BaseModel
 
 from igenius_adapters_sdk.entities.i18n import I18n
 
 Uid = str
+
+StaticTypes = Union[float, int, str]
 
 
 class AttributeFunctionSpecs(BaseModel):
@@ -64,6 +68,14 @@ class AggregationFunction:
         i18n=I18n(
             name="crystal.topics.data.aggregation.max.i18n.name",
             description="crystal.topics.data.aggregation.max.i18n.description",
+        ),
+    )
+
+    STATIC = AttributeFunctionSpecs(
+        uid="crystal.topics.data.aggregation.static",
+        i18n=I18n(
+            name="cons-conf-core-data-editor-aggregation-function-distinct-static",
+            description="crystal.topics.data.aggregation.static.i18n.description",
         ),
     )
 
