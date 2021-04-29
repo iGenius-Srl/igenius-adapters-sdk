@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 For further informations about change log please go [here](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.4.0...master)
+## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.5.0...master)
 
-## [v1.4.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.3.0...v1.4.0) - 2021-04-23
+## [v1.5.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.4.0...v1.5.0) - 2021-04-29
+### Add
+* ARRAY and STRUCT to AttributeType in collection entity ([SQD-1073](https://igenius.atlassian.net/browse/SQD-1073))
+
+
+## [v1.4.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.3.0...v1.4.0) - 2021-04-26
 ### Add
 * support for StaticTypes in attribute entity and I18n description optional ([SQD-1065](https://igenius.atlassian.net/browse/SQD-1065))
 
