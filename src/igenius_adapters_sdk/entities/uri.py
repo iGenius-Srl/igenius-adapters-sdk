@@ -21,17 +21,6 @@ RE_MATCH_COLLECTION_NAME = re.compile(r"" + environ.get("IGENIUS_ADAPTER_SDK_RE_
 RE_MATCH_ALL_BUT_NEW_LINES_AND_TABS = re.compile(r"^[\S ]+$")
 
 
-class DataSchemaError:
-    class DataSchemaBaseError(Exception):
-        pass
-
-    class AttributeNotFound(DataSchemaBaseError):
-        pass
-
-    class AttributeTypeCompatibilityError(DataSchemaBaseError):
-        pass
-
-
 class Uid(str):
     min_length: int = 1
     max_length: OptionalInt = None
