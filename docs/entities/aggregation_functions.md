@@ -18,11 +18,11 @@ Answers question: What is the identity of the data?
 
 ```python
 IDENTITY = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.identity',
+    uid="crystal.topics.data.aggregation.identity",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.identity.i18n.name',
-        description='crystal.topics.data.aggregation.identity.i18n.description',
-    )
+        name="cons-conf-core-data-editor-aggregation-function-identity",
+        description="crystal.topics.data.aggregation.identity.i18n.description",
+    ),
 )
 ```
 
@@ -32,11 +32,11 @@ Answers question: What is the average value of the data?
 
 ```python
 AVG = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.avg',
+    uid="crystal.topics.data.aggregation.avg",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.avg.i18n.name',
-        description='crystal.topics.data.aggregation.avg.i18n.description',
-    )
+        name="cons-configure-data-editor-agg-fun-average",
+        description="crystal.topics.data.aggregation.avg.i18n.description",
+    ),
 )
 ```
 
@@ -46,11 +46,11 @@ Answers question: How many times did condition occur?
 
 ```python
 COUNT = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.count',
+    uid="crystal.topics.data.aggregation.count",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.count.i18n.name',
-        description='crystal.topics.data.aggregation.count.i18n.description',
-    )
+        name="cons-configure-data-editor-agg-fun-count",
+        description="crystal.topics.data.aggregation.count.i18n.description",
+    ),
 )
 ```
 
@@ -60,11 +60,11 @@ Answers question: What is the sum of the data?
 
 ```python
 SUM = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.sum',
+    uid="crystal.topics.data.aggregation.sum",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.sum.i18n.name',
-        description='crystal.topics.data.aggregation.sum.i18n.description',
-    )
+        name="cons-configure-data-editor-agg-fun-sum",
+        description="crystal.topics.data.aggregation.sum.i18n.description",
+    ),
 )
 ```
 
@@ -74,11 +74,11 @@ Answers question: How many times did condition occur for distinct records?
 
 ```python
 DISTINCT_COUNT = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.distinct-count',
+    uid="crystal.topics.data.aggregation.distinct-count",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.distinct-count.i18n.name',
-        description='crystal.topics.data.aggregation.distinct-count.i18n.description',
-    )
+        name="cons-conf-core-data-editor-aggregation-function-distinct-count",
+        description="crystal.topics.data.aggregation.distinct-count.i18n.description",
+    ),
 )
 ```
 
@@ -88,11 +88,11 @@ Answers question: What is the minimum value of the data?
 
 ```python
 MIN = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.min',
+    uid="crystal.topics.data.aggregation.min",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.min.i18n.name',
-        description='crystal.topics.data.aggregation.min.i18n.description',
-    )
+        name="cons-configure-data-editor-agg-fun-min",
+        description="crystal.topics.data.aggregation.min.i18n.description",
+    ),
 )
 ```
 
@@ -102,10 +102,10 @@ Answers question: What is the maximal value of the data?
 
 ```python
 MAX = AttributeFunctionSpecs(
-    uid='crystal.topics.data.aggregation.max',
+    uid="crystal.topics.data.aggregation.max",
     i18n=I18n(
-        name='crystal.topics.data.aggregation.max.i18n.name',
-        description='crystal.topics.data.aggregation.max.i18n.description',
-    )
+        name="cons-configure-data-editor-agg-fun-max",
+        description="crystal.topics.data.aggregation.max.i18n.description",
+    ),
 )
 ```
