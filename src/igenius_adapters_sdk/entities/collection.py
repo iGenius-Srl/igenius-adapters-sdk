@@ -9,6 +9,7 @@ class AttributeType(str, Enum):
     CATEGORICAL = "crystal.topics.data.attribute-types.categorical"
     DATETIME = "crystal.topics.data.attribute-types.datetime"
     NUMERIC = "crystal.topics.data.attribute-types.numeric"
+    RELATIVE_TIME_RANGE = "crystal.topics.data.attribute-types.relative_timerange"
     STRUCT = "crystal.topics.data.attribute-types.scruct"
     ARRAY = "crystal.topics.data.attribute-types.array"
     UNKNOWN = "crystal.topics.data.attribute-types.unknown"

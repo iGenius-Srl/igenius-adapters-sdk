@@ -84,7 +84,7 @@ class ParamOperation:
     EQUAL = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.equal",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.equal.i18n.name",
+            name="cons-data-table-sort-operation-label-equal",
             description="crystal.topics.data.param-operation.equal.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -92,7 +92,7 @@ class ParamOperation:
     DIFFERENT = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.different",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.different.i18n.name",
+            name="cons-data-table-sort-operation-label-different",
             description="crystal.topics.data.param-operation.different.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -100,7 +100,7 @@ class ParamOperation:
     GREATER_THAN = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.greater-than",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.greater-than.i18n.name",
+            name="cons-data-table-sort-operation-label-greater-than",
             description="crystal.topics.data.param-operation.greater-than.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -108,7 +108,7 @@ class ParamOperation:
     LESS_THAN = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.less-than",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.less-than.i18n.name",
+            name="cons-data-table-sort-operation-label-less-than",
             description="crystal.topics.data.param-operation.less-than.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -116,7 +116,7 @@ class ParamOperation:
     GREATER_THAN_OR_EQUAL_TO = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.greater-than-or-equal-to",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.greater-than-or-equal-to.i18n.name",
+            name="cons-data-table-sort-operation-label-greater-than-equal-to",
             description="crystal.topics.data.param-operation.greater-than-or-equal-to.i18n.description",  # noqa: E501
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -124,7 +124,7 @@ class ParamOperation:
     LESS_THAN_OR_EQUAL_TO = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.less-than-or-equal-to",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.less-than-or-equal-to.i18n.name",
+            name="cons-data-table-sort-operation-label-less-than-equal-to",
             description="crystal.topics.data.param-operation.less-than-or-equal-to.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -132,7 +132,7 @@ class ParamOperation:
     BETWEEN = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.between",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.between.i18n.name",
+            name="cons-data-table-sort-operation-label-between",
             description="crystal.topics.data.param-operation.between.i18n.description",
         ),
         properties_schema=OperationSchemas.RANGE_VALUE.jsonschema,
@@ -140,7 +140,7 @@ class ParamOperation:
     CONTAINS = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.contains",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.contains.i18n.name",
+            name="cons-data-table-sort-operation-label-contains",
             description="crystal.topics.data.param-operation.contains.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -148,7 +148,7 @@ class ParamOperation:
     IN = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.in",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.in.i18n.name",
+            name="cons-data-table-sort-operation-label-in",
             description="crystal.topics.data.param-operation.in.i18n.description",
         ),
         properties_schema=OperationSchemas.MULTIPLE_VALUE.jsonschema,
@@ -156,7 +156,7 @@ class ParamOperation:
     NOT_CONTAINS = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.not-contains",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.not-contains.i18n.name",
+            name="cons-data-table-sort-operation-label-not-contains",
             description="crystal.topics.data.param-operation.not-contains.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -164,7 +164,7 @@ class ParamOperation:
     STARTS_WITH = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.starts-with",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.starts-with.i18n.name",
+            name="cons-data-table-sort-operation-label-starts-with",
             description="crystal.topics.data.param-operation.starts-with.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -172,7 +172,7 @@ class ParamOperation:
     ENDS_WITH = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.ends-with",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.ends-with.i18n.name",
+            name="cons-data-table-sort-operation-label-ends-with",
             description="crystal.topics.data.param-operation.ends-with.i18n.description",
         ),
         properties_schema=OperationSchemas.SINGLE_VALUE.jsonschema,
@@ -180,7 +180,7 @@ class ParamOperation:
     EMPTY = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.empty",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.empty.i18n.name",
+            name="cons-data-table-sort-operation-label-empty",
             description="crystal.topics.data.param-operation.empty.i18n.description",
         ),
         properties_schema=OperationSchemas.NO_VALUE.jsonschema,
@@ -188,7 +188,7 @@ class ParamOperation:
     NOT_EMPTY = ParamOperationSpecs(
         uid="crystal.topics.data.param-operation.not-empty",
         i18n=I18n(
-            name="crystal.topics.data.param-operation.not-empty.i18n.name",
+            name="cons-data-table-sort-operation-label-not-empty",
             description="crystal.topics.data.param-operation.not-empty.i18n.description",
         ),
         properties_schema=OperationSchemas.NO_VALUE.jsonschema,
