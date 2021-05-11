@@ -3,7 +3,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 For further informations about change log please go [here](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.5.0...master)
+## [Unreleased](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.5.1...master)
+
+## [v1.5.1](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.5.0...v1.5.1) - 2021-05-11
+### Fix
+* align i18n keys with latest changes in topic-service ([SQD-1128](https://igenius.atlassian.net/browse/SQD-1128))
+
 
 ## [v1.5.0](https://git.igenius.net/teams/backend/igenius-adapters-sdk/compare/v1.4.0...v1.5.0) - 2021-04-29
 ### Add

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "igenius-adapters-sdk"
-version = "1.5.0"
+version = "1.5.1"
 description = "The iGenius Software Development Kit to develop crystal datasource adapters."
 authors = ["iGenius Backend <backend@igenius.ai>"]
 homepage = "https://github.com/iGenius-Srl/igenius-adapters-sdk"
