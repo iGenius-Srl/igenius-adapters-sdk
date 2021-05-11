@@ -18,7 +18,7 @@ class AggregationFunction:
     IDENTITY = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.identity",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.identity.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-identity",
             description="crystal.topics.data.aggregation.identity.i18n.description",
         ),
     )
@@ -26,7 +26,7 @@ class AggregationFunction:
     AVG = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.avg",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.avg.i18n.name",
+            name="cons-configure-data-editor-agg-fun-average",
             description="crystal.topics.data.aggregation.avg.i18n.description",
         ),
     )
@@ -34,7 +34,7 @@ class AggregationFunction:
     COUNT = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.count",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.count.i18n.name",
+            name="cons-configure-data-editor-agg-fun-count",
             description="crystal.topics.data.aggregation.count.i18n.description",
         ),
     )
@@ -42,7 +42,7 @@ class AggregationFunction:
     SUM = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.sum",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.sum.i18n.name",
+            name="cons-configure-data-editor-agg-fun-sum",
             description="crystal.topics.data.aggregation.sum.i18n.description",
         ),
     )
@@ -50,7 +50,7 @@ class AggregationFunction:
     DISTINCT_COUNT = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.distinct-count",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.distinct-count.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-distinct-count",
             description="crystal.topics.data.aggregation.distinct-count.i18n.description",
         ),
     )
@@ -58,7 +58,7 @@ class AggregationFunction:
     MIN = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.min",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.min.i18n.name",
+            name="cons-configure-data-editor-agg-fun-min",
             description="crystal.topics.data.aggregation.min.i18n.description",
         ),
     )
@@ -66,11 +66,11 @@ class AggregationFunction:
     MAX = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.max",
         i18n=I18n(
-            name="crystal.topics.data.aggregation.max.i18n.name",
+            name="cons-configure-data-editor-agg-fun-max",
             description="crystal.topics.data.aggregation.max.i18n.description",
         ),
     )
-
+    
     STATIC = AttributeFunctionSpecs(
         uid="crystal.topics.data.aggregation.static",
         i18n=I18n(
@@ -97,7 +97,7 @@ class GroupByFunction:
     IDENTITY = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.identity",
         i18n=I18n(
-            name="crystal.topics.data.group-by.identity.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-identity",
             description="crystal.topics.data.group-by.identity.i18n.description",
         ),
     )
@@ -105,7 +105,7 @@ class GroupByFunction:
     DATE_TRUNC_DAY = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-day",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-day.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-day",
             description="crystal.topics.data.group-by.date-trunc-day.i18n.description",
         ),
     )
@@ -113,7 +113,7 @@ class GroupByFunction:
     DATE_TRUNC_WEEK = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-week",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-week.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-week",
             description="crystal.topics.data.group-by.date-trunc-week.i18n.description",
         ),
     )
@@ -121,7 +121,7 @@ class GroupByFunction:
     DATE_TRUNC_MONTH = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-month",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-month.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-month",
             description="crystal.topics.data.group-by.date-trunc-month.i18n.description",
         ),
     )
@@ -129,7 +129,7 @@ class GroupByFunction:
     DATE_TRUNC_QUARTER = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-quarter",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-quarter.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-quarter",
             description="crystal.topics.data.group-by.date-trunc-quarter.i18n.description",
         ),
     )
@@ -137,7 +137,7 @@ class GroupByFunction:
     DATE_TRUNC_SEMESTER = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-semester",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-semester.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-semester",
             description="crystal.topics.data.group-by.date-trunc-semester.i18n.description",
         ),
     )
@@ -145,7 +145,7 @@ class GroupByFunction:
     DATE_TRUNC_YEAR = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.date-trunc-year",
         i18n=I18n(
-            name="crystal.topics.data.group-by.date-trunc-year.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-year",
             description="crystal.topics.data.group-by.date-trunc-year.i18n.description",
         ),
     )
@@ -153,7 +153,7 @@ class GroupByFunction:
     NUMERIC_BINNING = AttributeFunctionSpecs(
         uid="crystal.topics.data.group-by.numeric_binning",
         i18n=I18n(
-            name="crystal.topics.data.group-by.numeric_binning.i18n.name",
+            name="cons-conf-core-data-editor-aggregation-function-numeric-binning",
             description="crystal.topics.data.group-by.numeric_binning.i18n.description",
         ),
     )
